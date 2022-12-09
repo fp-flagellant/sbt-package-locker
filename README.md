@@ -33,7 +33,6 @@ and list of rules
 - `modules` check this modules in specified organization
 
 In the sbt:
-
 ```sbt
 checkPackages <MY-RULES-FILE>
 ```
