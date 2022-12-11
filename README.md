@@ -5,7 +5,7 @@ The goal is simple: Fail if the library version is not supported by organization
 ## All you need is &#9829; this plugin added to the project
 
 ```
-addSbtPlugin("fp-flagellant" % "sbt-package-locker" % "<version>")
+addSbtPlugin("io.github.fp-flagellant" % "sbt-package-locker" % "<version>")
 ```
 
 and list of rules
