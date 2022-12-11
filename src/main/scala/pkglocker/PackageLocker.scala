@@ -29,7 +29,7 @@ object PackageLocker extends AutoPlugin {
     val rules = RuleExtractor.getData(path)
     rules match {
       case Left(value) =>
-        log.err(s"Error found in .package-lock file, reason: ${value.getMessage}")
+        log.err(s"Error found in .package-lock file, reason: ${value}")
       case Right(value) =>
         val rules = value.groupBy(_.organization)
         val modules = updateReport.allModules

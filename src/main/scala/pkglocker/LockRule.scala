@@ -1,7 +1,6 @@
 package pkglocker
 
-import io.circe.Decoder
-import io.circe.generic.semiauto._
+import zio.json._
 
 final case class LockRule(
   organization: String,
@@ -10,5 +9,6 @@ final case class LockRule(
 )
 
 object LockRule {
-  implicit val lockRuleDecoder: Decoder[LockRule] = deriveDecoder[LockRule]
+
+  implicit val lockRuleDecoder: JsonDecoder[LockRule] = DeriveJsonDecoder.gen[LockRule]
 }

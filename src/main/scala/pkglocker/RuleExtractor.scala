@@ -1,6 +1,6 @@
 package pkglocker
 
-import io.circe.jawn.decode
+import zio.json.DecoderOps
 
 import scala.io.Source
 
@@ -10,7 +10,8 @@ object RuleExtractor {
     val src = Source.fromFile(path)
     val rawJsonString = src.getLines().mkString
     src.close()
-    decode[Vector[LockRule]](rawJsonString)
+
+    rawJsonString.fromJson[Vector[LockRule]]
   }
 
 }
