@@ -1,4 +1,6 @@
-## This project is aimed to be a part of CI step.
+## sbt-package-locker
+sbt-package-locker is a sbt plugin to lock specific lib version, it's aimed to be a part of CI step. 
+The goal is simple: Fail if the library version is not supported by organization rules.
 
 ## All you need is &#9829; this plugin added to the project
 
@@ -32,7 +34,7 @@ and list of rules
 - `version` is the specific version which will be the latest version you'd like to see in this project
 - `modules` check this modules in specified organization
 
-In the sbt:
+In console:
 ```sbt
-checkPackages <MY-RULES-FILE>
+sbt checkPackages <MY-RULES-FILE>
 ```
