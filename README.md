@@ -1,25 +1,30 @@
+[![sbt-package-locker Scala version support](https://index.scala-lang.org/fp-flagellant/sbt-package-locker/sbt-package-locker/latest.svg)](https://index.scala-lang.org/fp-flagellant/sbt-package-locker/sbt-package-locker)
+
 ## sbt-package-locker
+___
 sbt-package-locker is a sbt plugin to lock specific lib version, it's aimed to be a part of CI step. 
 The goal is simple: Fail if the library version is not supported by organization rules.
 
-## All you need is &#9829; this plugin added to the project
+## Setup
+
+add as dependency `project/plugins.sbt`:
 
 ```
 addSbtPlugin("io.github.fp-flagellant" % "sbt-package-locker" % "<version>")
 ```
 
-and list of rules
+## Usage
+___
+```bash
+sbt "checkPackages <MY-RULES-FILE>"
+```
+`<MY-RULES-FILE>` is a config file described in json 
 
+## Config file example:
+___
 ```json
 
 [
-  {
-    "organization": "org.jline",
-    "version": "3.0.0",
-    "modules": [
-      "jline"
-    ]
-  },
   {
     "organization": "com.typesafe.akka",
     "version": "2.6.20",
@@ -30,11 +35,6 @@ and list of rules
   }
 ]
 ```
-
+where
 - `version` is the specific version which will be the latest version you'd like to see in this project
 - `modules` check this modules in specified organization
-
-In console:
-```sbt
-sbt checkPackages <MY-RULES-FILE>
-```
